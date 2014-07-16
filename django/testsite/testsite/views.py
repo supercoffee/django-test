@@ -9,8 +9,7 @@ def hello(request):
 
 def time(request):
     now = datetime.datetime.now()
-    response = "<html><body>The time is {0}</body></html>".format(now)
-    return HttpResponse(response)
+    return render(request, 'time.html', {'time':now})
 
 def hours_ahead(request, offset):
     try:
@@ -18,7 +17,7 @@ def hours_ahead(request, offset):
     except ValueError:
         raise Http404()
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    # t = get_template('time.html')
+    # t = get_template('future_time.html')
     # html = t.render(Context({'offset':offset, 'time':dt}))
     # return HttpResponse(html)
-    return render(request, 'time.html', {'offset':offset, 'time':dt})
+    return render(request, 'future_time.html', {'hours':offset, 'time':dt})
