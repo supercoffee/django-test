@@ -18,3 +18,6 @@ Now go back to you local machine and open a browser.
 Navigate to localhost:8000/admin
 Yes, it is localhost. The VM has port 8000 forwarded to your host machine's port 8000.
 This can be changed in the VagrantFile config.
+
+username: admin
+password: drowssap
